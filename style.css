@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: green;
+}
+label {
+  position: relative;
+  font-size: 25px;
+  color: #7d2ae8;
+  cursor: pointer;
+}
+label input {
+  position: absolute;
+  opacity: 0;
+}
+.checkmark {
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+label input:checked ~ .checkmark {
+  background-color: #7d2ae8;
+  border-color: #7d2ae8;
+  animation: jiggle 0.7s ease;
+}
+@keyframes jiggle {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.3, 0.7);
+  }
+  55% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2, 0.8);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1, 0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.checkmark::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  width: 15px;
+  height: 6px;
+  border-bottom: 4px solid #fff;
+  border-left: 4px solid #fff;
+  transform: scale(0) rotate(-45deg);
+  transition: 0.5s;
+}
+label input:checked ~ .checkmark::before {
+  transform: scale(1) rotate(-45deg);
+}
